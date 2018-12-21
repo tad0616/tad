@@ -1,0 +1,149 @@
+/* ==================== Tad ==================== */
+
+#tad_adm_head {
+  background: #E9E7DE;
+}
+
+#tad_adm_toolbar {
+  background: #aaa89e;
+}
+
+.tad_adm_icon {
+  width: 50px;
+  height: 64px;
+  float: left;
+  text-align: center;
+  margin: 8px;
+}
+
+.tad_mod_icon {
+  width: 72px;
+  height: 80px;
+  float: left;
+  text-align: center;
+  margin: 6px 10px;
+}
+
+.tad_mod_icon:hover img,.tad_adm_icon:hover img , img.tad_toolbar_icon:hover  {
+     transform:scale(1.3);
+     opacity: 1;
+}
+
+.tad_mod_icon img,
+.tad_adm_icon img {
+  width: 100%;
+}
+
+a.tad_icon_text {
+  font-size: 12px;
+  padding: 4px 0px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #7c576e;
+  text-decoration: none;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+a.tad_icon_text:visited {
+  color: #285472;
+}
+
+.tad_toolbar_head {
+  font-size: 20px;
+  font-family: "微軟正黑體";
+  color: white;
+  padding: 10px;
+}
+
+.tad_toolbar_icon {
+  width: 32px;
+  margin: 4px 2px;
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.navbar {
+  margin-bottom: 0px;
+  border: none;
+}
+
+#buttontop_mod,
+#xo-breadcrumb {
+  margin-top: 10px;
+}
+
+#buttontop_mod {
+  padding-top: 6px;
+}
+
+#xo-breadcrumb li,
+#xo-breadcrumb li a {
+  line-height: 30px;
+}
+
+#xo-breadcrumb .xo-help img {
+  padding: 0px;
+  vertical-align: middle;
+}
+
+#buttontop_mod a {
+  font-weight: normal;
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+#buttontop_mod a:hover {
+  color: #fff;
+  background: #2E8DB9;
+  text-decoration: none;
+}
+
+#buttonbar_mod li a span {
+  font-weight: normal;
+  font-size: 12px;
+  color: #000;
+}
+
+td > fieldset {
+  border: none;
+}
+
+td > fieldset>legend {
+  width: auto;
+  margin-bottom: 0px;
+  background: #ffffff;
+}
+
+div.rmmenuicon a span {
+  font-weight: normal;
+  font-size: 11px;
+  color: #000;
+}
+
+.page-header {
+  font-family: "微軟正黑體";
+  color: #4c636d;
+}
+
+.btn-adm,
+.btn-adm:link,
+.btn-adm:visited {
+  font-weight: normal;
+  font-size: 12px;
+  color: #fff;
+}
+
+.adminfooter {
+  margin-top: 20px;
+}
+
+.form-control-static {
+  min-height: 34px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin-bottom: 0;
+}
