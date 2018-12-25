@@ -92,6 +92,7 @@ class TadGui extends XoopsSystemGui
         if ($_SESSION['bootstrap'] == '4') {
             $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/bootstrap4/js/bootstrap.js');
         } else {
+            $_SESSION['bootstrap'] = '3';
             $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/bootstrap3/js/bootstrap.js');
         }
         $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/smartmenus/jquery.smartmenus.min.js');
@@ -361,6 +362,7 @@ if ($ver >= 259) {
                 xoops_load('XoopsFormRendererBootstrap4');
                 XoopsFormRenderer::getInstance()->set(new XoopsFormRendererBootstrap4());
             } else {
+                $_SESSION['bootstrap'] = '3';
                 xoops_load('XoopsFormRendererBootstrap3');
                 XoopsFormRenderer::getInstance()->set(new XoopsFormRendererBootstrap3());
             }
