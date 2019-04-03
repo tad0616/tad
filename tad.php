@@ -90,6 +90,7 @@ class TadGui extends XoopsSystemGui
         $xoTheme->addScript(XOOPS_ADMINTHEME_URL . '/tad/js/formenu.js');
         // $xoTheme->addScript(XOOPS_ADMINTHEME_URL . '/tad/js/tooltip.js');
         if ($_SESSION['bootstrap'] == '4') {
+            $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/bootstrap4/js/popper.min.js');
             $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/bootstrap4/js/bootstrap.js');
         } else {
             $_SESSION['bootstrap'] = '3';
