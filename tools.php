@@ -1,8 +1,10 @@
 <?php
+use XoopsModules\Tadtools\Utility;
+
 include_once "../../../../mainfile.php";
 
 $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : "";
-$v  = isset($_REQUEST['v']) ? $_REQUEST['v'] : "";
+$v = isset($_REQUEST['v']) ? $_REQUEST['v'] : "";
 
 switch ($op) {
 
@@ -26,10 +28,38 @@ switch ($op) {
         auto_templates();
         header("location: " . XOOPS_URL . "/admin.php");
         exit;
+    case "theme_in_allowed":
+        theme_in_allowed();
+        header("location: " . XOOPS_URL . "/admin.php");
+        exit;
+    case "auth_method_xoops":
+        auth_method_xoops();
+        header("location: " . XOOPS_URL . "/admin.php");
+        exit;
 
     default:
         check_templates();
         break;
+}
+
+function auth_method_xoops()
+{
+    global $xoopsDB;
+    $sql = 'update ' . $xoopsDB->prefix('config') . " set conf_value='xoops' where conf_name='auth_method'";
+    $xoopsDB->queryF($sql) or Utility::web_error($sql, __FILE__, __LINE__);
+}
+
+// 把預設佈景加入可選佈景
+function theme_in_allowed()
+{
+    global $xoopsConfig, $xoopsDB;
+
+    $xoopsConfig['theme_set_allowed'][] = $xoopsConfig['theme_set'];
+    $theme_set_allowed = serialize($xoopsConfig['theme_set_allowed']);
+
+    $sql = 'update ' . $xoopsDB->prefix('config') . " set conf_value='{$theme_set_allowed}' where conf_name='theme_set_allowed'";
+    $xoopsDB->queryF($sql) or Utility::web_error($sql, __FILE__, __LINE__);
+
 }
 
 //清除樣板
@@ -40,8 +70,8 @@ function clean_templates($dirs = array(), $files = array())
     $isWin = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false;
 
     $theme_name = $xoopsConfig['theme_set'];
-    $all_dir    = array();
-    $dir        = XOOPS_ROOT_PATH . "/themes/{$theme_name}/modules/";
+    $all_dir = array();
+    $dir = XOOPS_ROOT_PATH . "/themes/{$theme_name}/modules/";
     if (is_dir($dir)) {
         if ($dh = opendir($dir)) {
             while (($file = readdir($dh)) !== false) {
@@ -111,7 +141,7 @@ function debug_mode($v = 0)
     global $xoopsDB;
 
     $sql = "update " . $xoopsDB->prefix("config") . " set conf_value='$v' where conf_name='debug_mode'";
-    $xoopsDB->queryF($sql) or web_error($sql);
+    $xoopsDB->queryF($sql) or Utility::web_error($sql, __FILE__, __LINE__);
 }
 
 //修改自動編譯
@@ -120,5 +150,5 @@ function auto_templates()
     global $xoopsDB;
 
     $sql = "update " . $xoopsDB->prefix("config") . " set conf_value='1' where conf_name='theme_fromfile'";
-    $xoopsDB->queryF($sql) or web_error($sql);
+    $xoopsDB->queryF($sql) or Utility::web_error($sql, __FILE__, __LINE__);
 }

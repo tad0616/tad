@@ -63,4 +63,6 @@ define('_OXYGEN_SYS_CONFIG', '一般設定');
 define('_OXYGEN_CLEAR_TEMPLATES', '清舊樣板');
 define('_OXYGEN_CONFIG_CHECK', '系統設定檢查');
 define('_OXYGEN_AUTO_TEMPLATES', '請點此開啟「自動編譯樣板」設定');
+define('_OXYGEN_AUTO_THEME_ALLOWED', '修正預設佈景未在「使用者可選擇的佈景」中的問題');
+define('_OXYGEN_TN_AUTH_METHOD', 'TN 認證已無效，修正為預設登入方式');
 define('_OXYGEN_ALL_CONFIG_OK', '所有設定均正確');

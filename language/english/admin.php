@@ -60,4 +60,6 @@ define('_OXYGEN_SYS_CONFIG', 'System config');
 define('_OXYGEN_CLEAR_TEMPLATES', 'Clear Templates');
 define('_OXYGEN_CONFIG_CHECK', 'System settings check');
 define('_OXYGEN_AUTO_TEMPLATES', 'Please click here to open the "Automatically compile templates" setting');
+define('_OXYGEN_AUTO_THEME_ALLOWED', 'Fix an issue where the theme is not in the "theme in allowed"');
+define('_OXYGEN_TN_AUTH_METHOD', 'TN authentication is invalid, corrected to default login method');
 define('_OXYGEN_ALL_CONFIG_OK', 'All settings are correct');
