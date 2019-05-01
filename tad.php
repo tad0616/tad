@@ -46,12 +46,16 @@ class TadGui extends XoopsSystemGui
         }
 
         $tpl->assign('clean_templates', $clean_templates);
-        $tpl->assign('debug', $xoopsConfig['debug']);
+        $tpl->assign('debug', $xoopsConfig['debug_mode']);
         $tpl->assign('theme_fromfile', $xoopsConfig['theme_fromfile']);
 
         $tpl->assign('theme_set', $xoopsConfig['theme_set']);
         $tpl->assign('theme_in_allowed', in_array($xoopsConfig['theme_set'], $xoopsConfig['theme_set_allowed']));
-        $tpl->assign('auth_method', $xoopsConfig['auth_method']);
+
+        $sql = "select conf_value from " . $xoopsDB->prefix("config") . " where conf_name='auth_method'";
+        $result = $xoopsDB->queryF($sql) or web_error($sql);
+        list($auth_method) = $xoopsDB->fetchRow($result);
+        $tpl->assign('auth_method', $auth_method);
 
         $dirname = XOOPS_VAR_PATH . "/caches/smarty_compile/";
         if (glob($dirname . "*.php") != false) {

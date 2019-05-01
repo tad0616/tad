@@ -22,4 +22,3 @@
         <{$smarty.const._OXYGEN_ALL_CONFIG_OK}>
     </div>
 <{/if}>
-
