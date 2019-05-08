@@ -107,4 +107,8 @@
         <label class="col-sm-6">upload_max_filesize</label>
         <div class="col-sm-6"><{$upload_max_filesize}></div>
     </div>
+    <div class="row">
+        <label class="col-sm-6">SERVER IP</label>
+        <div class="col-sm-6"><{$server_ip}></div>
+    </div>
 </div>
