@@ -65,4 +65,5 @@ define('_OXYGEN_CONFIG_CHECK', '系統設定檢查');
 define('_OXYGEN_AUTO_TEMPLATES', '請點此開啟「自動編譯樣板」設定');
 define('_OXYGEN_AUTO_THEME_ALLOWED', '修正預設佈景未在「使用者可選擇的佈景」中的問題');
 define('_OXYGEN_TN_AUTH_METHOD', 'TN 認證已無效，修正為預設登入方式');
+define('_OXYGEN_TN_TAD_ADM_FIX', '站長工具箱模組使用權限未開放給訪客，將導致網站無出問題時無法急救，請點此開啟之');
 define('_OXYGEN_ALL_CONFIG_OK', '所有設定均正確');

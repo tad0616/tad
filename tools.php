@@ -5,6 +5,7 @@ include_once "../../../../mainfile.php";
 
 $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : "";
 $v = isset($_REQUEST['v']) ? $_REQUEST['v'] : "";
+$tad_adm_mid = (int) $_REQUEST['tad_adm_mid'];
 
 switch ($op) {
 
@@ -36,10 +37,21 @@ switch ($op) {
         auth_method_xoops();
         header("location: " . XOOPS_URL . "/admin.php");
         exit;
+    case "tad_adm_power":
+        tad_adm_power($tad_adm_mid);
+        header("location: " . XOOPS_URL . "/admin.php");
+        exit;
 
     default:
         check_templates();
         break;
+}
+
+function tad_adm_power($tad_adm_mid)
+{
+    global $xoopsDB;
+    $sql = 'insert into ' . $xoopsDB->prefix('group_permission') . " (gperm_itemid, gperm_groupid, gperm_modid, gperm_name) values('{$tad_adm_mid}', 3, 1, 'module_read')";
+    $xoopsDB->queryF($sql) or Utility::web_error($sql, __FILE__, __LINE__);
 }
 
 function auth_method_xoops()

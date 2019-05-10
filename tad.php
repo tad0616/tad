@@ -57,6 +57,15 @@ class TadGui extends XoopsSystemGui
         list($auth_method) = $xoopsDB->fetchRow($result);
         $tpl->assign('auth_method', $auth_method);
 
+        $sql = "select mid from " . $xoopsDB->prefix("modules") . " where dirname='tad_adm'";
+        $result = $xoopsDB->queryF($sql) or web_error($sql);
+        list($tad_adm_mid) = $xoopsDB->fetchRow($result);
+        $tpl->assign('tad_adm_mid', $tad_adm_mid);
+        $sql = "select gperm_id from " . $xoopsDB->prefix("group_permission") . " where gperm_itemid='$tad_adm_mid' and gperm_groupid='3' and gperm_modid='1' and gperm_name='module_read'";
+        $result = $xoopsDB->queryF($sql) or web_error($sql);
+        list($tad_adm_gperm_id) = $xoopsDB->fetchRow($result);
+        $tpl->assign('tad_adm_gperm_id', $tad_adm_gperm_id);
+
         $dirname = XOOPS_VAR_PATH . "/caches/smarty_compile/";
         if (glob($dirname . "*.php") != false) {
             $filecount = count(glob($dirname . "*.php"));
