@@ -345,10 +345,9 @@ class TadGui extends XoopsSystemGui
         }
     }
 }
-// die(str_replace('.', '', str_replace('XOOPS ', '', XOOPS_VERSION)));
-$ver = (int) str_replace('.', '', str_replace('XOOPS ', '', XOOPS_VERSION));
 
-if ($ver >= 259) {
+$ver = (int) str_pad(str_replace('.', '', str_replace('XOOPS ', '', XOOPS_VERSION)), 4, 0);
+if ($ver >= 2590) {
     class XoopsGuiTad extends TadGui
     {
 
