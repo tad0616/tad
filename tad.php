@@ -10,6 +10,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
 xoops_load('gui', 'system');
+use XoopsModules\Tadtools\Utility;
 
 class TadGui extends XoopsSystemGui
 {
@@ -346,8 +347,8 @@ class TadGui extends XoopsSystemGui
     }
 }
 
-$ver = (int) str_pad(str_replace('.', '', str_replace('XOOPS ', '', XOOPS_VERSION)), 4, 0);
-if ($ver >= 2590) {
+$ver = Utility::get_version('xoops');
+if ($ver >= 20509) {
     class XoopsGuiTad extends TadGui
     {
 
