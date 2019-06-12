@@ -12,6 +12,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 xoops_load('gui', 'system');
 use XoopsModules\Tadtools\Utility;
 
+if (!class_exists('XoopsModules\Tadtools\Utility')) {
+    include XOOPS_ROOT_PATH . '/modules/tadtools/preloads/autoloader.php';
+}
+
 class TadGui extends XoopsSystemGui
 {
     public function __construct()
