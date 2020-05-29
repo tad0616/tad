@@ -358,10 +358,12 @@ if ($ver >= 20509) {
 
         public static function validate()
         {
+            Utility::get_bootstrap();
+
             if ($_SESSION['bootstrap'] == '4') {
                 xoops_load('XoopsFormRendererBootstrap4');
                 XoopsFormRenderer::getInstance()->set(new XoopsFormRendererBootstrap4());
-            } else {
+            } elseif ($_SESSION['bootstrap'] == '3') {
                 $_SESSION['bootstrap'] = '3';
                 xoops_load('XoopsFormRendererBootstrap3');
                 XoopsFormRenderer::getInstance()->set(new XoopsFormRendererBootstrap3());
