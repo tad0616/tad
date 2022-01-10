@@ -1,11 +1,12 @@
 <?php
+use Xmf\Request;
 use XoopsModules\Tadtools\Utility;
 
 include_once "../../../../mainfile.php";
 
-$op = isset($_REQUEST['op']) ? $_REQUEST['op'] : "";
-$v = isset($_REQUEST['v']) ? $_REQUEST['v'] : "";
-$tad_adm_mid = (int) $_REQUEST['tad_adm_mid'];
+$op = Request::getString('op');
+$v = Request::getString('v');
+$tad_adm_mid = Request::getInt('tad_adm_mid');
 
 switch ($op) {
 

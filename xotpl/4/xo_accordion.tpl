@@ -36,11 +36,11 @@
 
 
         <div class="tad_adm_icon">
-            <a href="<{$xoops_url}>/modules/tad_adm/pma.php" target="_blank" title=" <{$smarty.const._OXYGEN_DATABASE}>">
+            <a href="<{$xoops_url}>/modules/tad_adm/pma.php?server=<{$XOOPS_DB_HOST}>&db=<{$XOOPS_DB_NAME}>" target="_blank" title=" <{$smarty.const._OXYGEN_DATABASE}>">
                 <img src='<{$theme_img}>/server.png' alt="<{$smarty.const._OXYGEN_DATABASE}>">
             </a>
             <div>
-                <a href="<{$xoops_url}>/modules/tad_adm/pma.php" target="_blank" title="<{$smarty.const._OXYGEN_DATABASE}>" class="tad_icon_text"> <{$smarty.const._OXYGEN_DATABASE}></a>
+                <a href="<{$xoops_url}>/modules/tad_adm/pma.php?server=<{$XOOPS_DB_HOST}>&db=<{$XOOPS_DB_NAME}>" target="_blank" title="<{$smarty.const._OXYGEN_DATABASE}>" class="tad_icon_text"> <{$smarty.const._OXYGEN_DATABASE}></a>
             </div>
         </div>
 

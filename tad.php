@@ -27,7 +27,7 @@ class TadGui extends XoopsSystemGui
     {
         parent::header();
 
-        global $xoopsConfig, $xoopsUser, $xoopsModule, $xoTheme, $xoopsTpl, $xoopsDB;
+        global $xoopsConfig, $xoopsUser, $xoopsModule, $xoTheme, $xoopsDB;
         $tpl = &$this->template;
 
         //檢查舊樣板
@@ -54,8 +54,8 @@ class TadGui extends XoopsSystemGui
         $tpl->assign('debug', $xoopsConfig['debug_mode']);
         $tpl->assign('theme_fromfile', $xoopsConfig['theme_fromfile']);
 
-        $tpl->assign('theme_set', $xoopsConfig['theme_set']);
-        $tpl->assign('theme_in_allowed', in_array($xoopsConfig['theme_set'], $xoopsConfig['theme_set_allowed']));
+        $tpl->assign('theme_set', $theme_name);
+        $tpl->assign('theme_in_allowed', in_array($theme_name, $xoopsConfig['theme_set_allowed']));
 
         $sql = "select conf_value from " . $xoopsDB->prefix("config") . " where conf_name='auth_method'";
         $result = $xoopsDB->queryF($sql) or web_error($sql);
@@ -87,14 +87,17 @@ class TadGui extends XoopsSystemGui
 
         $xoTheme->addScript(XOOPS_ADMINTHEME_URL . '/tad/js/styleswitch.js');
         $xoTheme->addScript(XOOPS_ADMINTHEME_URL . '/tad/js/formenu.js');
-        // $xoTheme->addScript(XOOPS_ADMINTHEME_URL . '/tad/js/tooltip.js');
-        if ($_SESSION['bootstrap'] == '4') {
-            $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/bootstrap4/js/popper.min.js');
-            $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/bootstrap4/js/bootstrap.js');
+
+        if (file_exists(XOOPS_ROOT_PATH . "/uploads/bootstrap.conf")) {
+            $bootstrap = substr(file_get_contents(XOOPS_ROOT_PATH . "/uploads/bootstrap.conf"), -1);
+            $_SESSION['bootstrap'] = $bootstrap ? $bootstrap : 4;
         } else {
-            $_SESSION['bootstrap'] = '3';
-            $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/bootstrap3/js/bootstrap.js');
+            $_SESSION['bootstrap'] = '4';
         }
+
+        $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/bootstrap' . $_SESSION['bootstrap'] . '/js/popper.min.js');
+        $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/bootstrap' . $_SESSION['bootstrap'] . '/js/bootstrap.js');
+
         $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/smartmenus/jquery.smartmenus.min.js');
         $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/smartmenus/sm-responsive.js');
 
@@ -177,6 +180,8 @@ class TadGui extends XoopsSystemGui
         $tpl->assign('modname', $modname);
         $tpl->assign('modid', $modid);
         $tpl->assign('moddir', $moddir);
+        $tpl->assign('XOOPS_DB_HOST', XOOPS_DB_HOST);
+        $tpl->assign('XOOPS_DB_NAME', XOOPS_DB_NAME);
 
         // add MODULES  Menu items
         $module_handler = xoops_getHandler('module');
@@ -360,13 +365,16 @@ if ($ver >= 20509) {
         {
             Utility::get_bootstrap();
 
-            if ($_SESSION['bootstrap'] == '4') {
-                xoops_load('XoopsFormRendererBootstrap4');
-                XoopsFormRenderer::getInstance()->set(new XoopsFormRendererBootstrap4());
-            } elseif ($_SESSION['bootstrap'] == '3') {
-                $_SESSION['bootstrap'] = '3';
+            if ($_SESSION['bootstrap'] == '3') {
                 xoops_load('XoopsFormRendererBootstrap3');
                 XoopsFormRenderer::getInstance()->set(new XoopsFormRendererBootstrap3());
+            } else if ($_SESSION['bootstrap'] == '5') {
+                xoops_load('XoopsFormRendererBootstrap5');
+                XoopsFormRenderer::getInstance()->set(new XoopsFormRendererBootstrap5());
+            } else {
+                $_SESSION['bootstrap'] = '4';
+                xoops_load('XoopsFormRendererBootstrap4');
+                XoopsFormRenderer::getInstance()->set(new XoopsFormRendererBootstrap4());
             }
             return true;
         }

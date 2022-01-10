@@ -8,8 +8,6 @@
  *
  */
 
-
-
 this.tooltip = function(){
     /* CONFIG */
     yOffset = 20;
