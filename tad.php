@@ -91,8 +91,11 @@ class TadGui extends XoopsSystemGui
         if (file_exists(XOOPS_ROOT_PATH . "/uploads/bootstrap.conf")) {
             $bootstrap = substr(file_get_contents(XOOPS_ROOT_PATH . "/uploads/bootstrap.conf"), -1);
             $_SESSION['bootstrap'] = $bootstrap ? $bootstrap : 4;
+        } elseif ($_SESSION['bootstrap']) {
+            file_put_contents(XOOPS_ROOT_PATH . "/uploads/bootstrap.conf", "bootstrap = {$_SESSION['bootstrap']}");
         } else {
             $_SESSION['bootstrap'] = '4';
+            file_put_contents(XOOPS_ROOT_PATH . "/uploads/bootstrap.conf", "bootstrap = {$_SESSION['bootstrap']}");
         }
 
         $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/bootstrap' . $_SESSION['bootstrap'] . '/js/popper.min.js');
