@@ -19,6 +19,10 @@
             <{if !$tad_adm_gperm_id}>
                 <li><a href="<{$theme_url}>/tools.php?op=tad_adm_power&tad_adm_mid=<{$tad_adm_mid}>"><{$smarty.const._OXYGEN_TN_TAD_ADM_FIX}></a></li>
             <{/if}>
+
+            <{if $sql_mode|strpos:'STRICT_TRANS_TABLES' || $sql_mode|strpos:'NO_ZERO_IN_DATE' || $sql_mode|strpos:'NO_ZERO_DATE' || $sql_mode|strpos:'ERROR_FOR_DIVISION_BY_ZERO' || $sql_mode|strpos:'ONLY_FULL_GROUP_BY'}>
+                <li><a href="<{$theme_url}>/tools.php?op=sql_mode"><{$smarty.const._OXYGEN_STRICT_TRANS_TABLES}></a></li>
+            <{/if}>
         </ul>
     </div>
 <{else}>

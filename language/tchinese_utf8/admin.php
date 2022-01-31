@@ -67,3 +67,4 @@ define('_OXYGEN_AUTO_THEME_ALLOWED', '修正預設佈景未在「使用者可選
 define('_OXYGEN_TN_AUTH_METHOD', 'TN 認證已無效，修正為預設登入方式');
 define('_OXYGEN_TN_TAD_ADM_FIX', '站長工具箱模組使用權限未開放給訪客，將導致網站無出問題時無法急救，請點此開啟之');
 define('_OXYGEN_ALL_CONFIG_OK', '所有設定均正確');
+define('_OXYGEN_STRICT_TRANS_TABLES', '資料庫的 sql_mode 過於嚴格，可能會導致許多模組運行不正常，可點此暫時修改設定，但重啟後會回復原設定。一勞永逸法：開啟資料庫設定檔（如：/etc/mysql/my.cnf），並於 [mysqld] 下加入或修改為 sql_mode = "NO_ENGINE_SUBSTITUTION" 並重啟資料庫。');

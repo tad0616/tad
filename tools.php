@@ -42,10 +42,21 @@ switch ($op) {
         tad_adm_power($tad_adm_mid);
         header("location: " . XOOPS_URL . "/admin.php");
         exit;
+    case "sql_mode":
+        sql_mode();
+        header("location: " . XOOPS_URL . "/admin.php");
+        exit;
 
     default:
         check_templates();
         break;
+}
+
+function sql_mode()
+{
+    global $xoopsDB;
+    $sql = "SET GLOBAL sql_mode = 'NO_ENGINE_SUBSTITUTION '; SET SESSION sql_mode = 'NO_ENGINE_SUBSTITUTION ';";
+    $xoopsDB->queryF($sql) or Utility::web_error($sql, __FILE__, __LINE__);
 }
 
 function tad_adm_power($tad_adm_mid)

@@ -119,6 +119,11 @@ class TadGui extends XoopsSystemGui
         list($ver) = $xoopsDB->fetchRow($result);
         $tpl->assign('lang_mysql_version', $ver);
 
+        $sql = "select @@sql_mode";
+        $result = $xoopsDB->queryF($sql);
+        list($sql_mode) = $xoopsDB->fetchRow($result);
+        $tpl->assign('sql_mode', $sql_mode);
+
         $tpl->assign('lang_server_api', PHP_SAPI);
         $tpl->assign('lang_os_name', PHP_OS);
         $tpl->assign('post_max_size', ini_get('post_max_size'));

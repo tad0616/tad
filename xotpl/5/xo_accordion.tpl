@@ -4,7 +4,7 @@
 
 
 
-<div class="row" style="margin: 20px 0px;">
+<div class="row mb-3" style="margin: 20px 0px;">
     <div class="col-sm-12">
 
         <div class="tad_adm_icon">
@@ -66,48 +66,52 @@
 </div>
 
 <div class="alert alert-info">
-    <div class="row">
+    <div class="row mb-3">
         <label class="col-sm-6"><{$smarty.const._OXYGEN_VERSION_XOOPS}></label>
         <div class="col-sm-6"><{$xoops_version}></div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
         <label class="col-sm-6"><{$smarty.const._OXYGEN_VERSION_PHP}></label>
         <div class="col-sm-6"><{$lang_php_vesion}></div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
         <label class="col-sm-6"><{$smarty.const._OXYGEN_VERSION_MYSQL}></label>
         <div class="col-sm-6"><{$lang_mysql_version}></div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
         <label class="col-sm-6">BootStrap <{$smarty.const._OXYGEN_VERSION}></label>
         <div class="col-sm-6"><{$smarty.session.bootstrap}></div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
         <label class="col-sm-6"><{$smarty.const._OXYGEN_OS}></label>
         <div class="col-sm-6"><{$lang_os_name}></div>
     </div>
 
-    <div class="row">
+    <div class="row mb-3">
         <label class="col-sm-6">post_max_size</label>
         <div class="col-sm-6"><{$post_max_size}></div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
         <label class="col-sm-6">max_input_time</label>
         <div class="col-sm-6"><{$max_input_time}></div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
         <label class="col-sm-6">max_execution_time</label>
         <div class="col-sm-6"><{$max_execution_time}></div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
         <label class="col-sm-6">memory_limit</label>
         <div class="col-sm-6"><{$memory_limit}></div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
         <label class="col-sm-6">upload_max_filesize</label>
         <div class="col-sm-6"><{$upload_max_filesize}></div>
     </div>
-    <div class="row">
+    <div class="row mb-3">
+        <label class="col-sm-6">sql-mode</label>
+        <div class="col-sm-6"><{$sql_mode}></div>
+    </div>
+    <div class="row mb-3">
         <label class="col-sm-6">SERVER IP</label>
         <div class="col-sm-6"><{$server_ip}></div>
     </div>
