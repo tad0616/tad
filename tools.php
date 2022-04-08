@@ -2,7 +2,8 @@
 use Xmf\Request;
 use XoopsModules\Tadtools\Utility;
 
-include_once "../../../../mainfile.php";
+// include_once "../../../../mainfile.php";
+require_once dirname(dirname(dirname(dirname(__DIR__)))) . '/include/cp_header.php';
 
 $op = Request::getString('op');
 $v = Request::getString('v');
@@ -46,10 +47,6 @@ switch ($op) {
         sql_mode();
         header("location: " . XOOPS_URL . "/admin.php");
         exit;
-
-    default:
-        check_templates();
-        break;
 }
 
 function sql_mode()

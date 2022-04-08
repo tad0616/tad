@@ -118,6 +118,7 @@ class TadGui extends XoopsSystemGui
         $result = $xoopsDB->queryF($sql);
         list($ver) = $xoopsDB->fetchRow($result);
         $tpl->assign('lang_mysql_version', $ver);
+        $tpl->assign('lang_web_version', $_SERVER['SERVER_SOFTWARE']);
 
         $sql = "select @@sql_mode";
         $result = $xoopsDB->queryF($sql);

@@ -79,6 +79,10 @@
         <div class="col-sm-6"><{$lang_mysql_version}></div>
     </div>
     <div class="row mb-3">
+        <label class="col-sm-6"><{$smarty.const._TAD_SIMPLE_VERSION_WEB}></label>
+        <div class="col-sm-6"><{$lang_web_version}></div>
+    </div>
+    <div class="row mb-3">
         <label class="col-sm-6">BootStrap <{$smarty.const._OXYGEN_VERSION}></label>
         <div class="col-sm-6"><{$smarty.session.bootstrap}></div>
     </div>
