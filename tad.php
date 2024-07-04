@@ -136,6 +136,9 @@ class TadGui extends XoopsSystemGui
         $tpl->assign('upload_max_filesize', ini_get('upload_max_filesize'));
         $tpl->assign('xoops_sitename', $xoopsConfig['sitename']);
         $tpl->assign('server_ip', $_SERVER['SERVER_ADDR']);
+        $tpl->assign('remote_ip', $_SERVER['REMOTE_ADDR']);
+        $forwarded_ip=isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:'';
+        $tpl->assign('forwarded_ip', $forwarded_ip);
 
         // ADD MENU *****************************************
 

@@ -119,4 +119,12 @@
         <label class="col-sm-6">SERVER IP</label>
         <div class="col-sm-6"><{$server_ip}></div>
     </div>
+    <div class="row">
+        <label class="col-sm-6">REMOTE IP</label>
+        <div class="col-sm-6"><{$remote_ip}></div>
+    </div>
+    <div class="row">
+        <label class="col-sm-6">HTTP_X_FORWARDED_FOR</label>
+        <div class="col-sm-6"><{$forwarded_ip}></div>
+    </div>
 </div>
