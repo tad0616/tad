@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h3><{$lang_cp}></h3>
+    <h3><{$lang_cp|default:''}></h3>
 </div>
 
 <{foreach item=op from=$mod_options}>

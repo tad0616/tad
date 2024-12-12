@@ -88,26 +88,19 @@ class TadGui extends XoopsSystemGui
         $xoTheme->addScript(XOOPS_ADMINTHEME_URL . '/tad/js/styleswitch.js');
         $xoTheme->addScript(XOOPS_ADMINTHEME_URL . '/tad/js/formenu.js');
 
-        if (file_exists(XOOPS_ROOT_PATH . "/uploads/bootstrap.conf")) {
-            $bootstrap = substr(file_get_contents(XOOPS_ROOT_PATH . "/uploads/bootstrap.conf"), -1);
-            $_SESSION['bootstrap'] = $bootstrap ? $bootstrap : 4;
-        } elseif ($_SESSION['bootstrap']) {
-            file_put_contents(XOOPS_ROOT_PATH . "/uploads/bootstrap.conf", "bootstrap = {$_SESSION['bootstrap']}");
-        } else {
-            $_SESSION['bootstrap'] = '4';
-            file_put_contents(XOOPS_ROOT_PATH . "/uploads/bootstrap.conf", "bootstrap = {$_SESSION['bootstrap']}");
+        if (!isset($_SESSION['bootstrap'])) {
+            Utility::get_bootstrap();
         }
 
-        $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/bootstrap' . $_SESSION['bootstrap'] . '/js/popper.min.js');
-        $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/bootstrap' . $_SESSION['bootstrap'] . '/js/bootstrap.js');
+        $xoTheme->addScript('modules/tadtools/bootstrap' . $_SESSION['bootstrap'] . '/js/popper.min.js');
+        $xoTheme->addScript('modules/tadtools/bootstrap' . $_SESSION['bootstrap'] . '/js/bootstrap.js');
 
-        $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/smartmenus/jquery.smartmenus.min.js');
-        $xoTheme->addScript(XOOPS_URL . '/modules/tadtools/smartmenus/sm-responsive.js');
+        $xoTheme->addScript('modules/tadtools/smartmenus/jquery.smartmenus.min.js');
 
         $xoTheme->addStylesheet(XOOPS_ADMINTHEME_URL . '/tad/css/style.css');
-        $xoTheme->addStylesheet(XOOPS_URL . '/modules/tadtools/smartmenus/css/sm-core-css.css');
+        $xoTheme->addStylesheet('modules/tadtools/smartmenus/css/sm-core-css.css');
         $xoTheme->addStylesheet(XOOPS_ADMINTHEME_URL . '/tad/css/sm-blue/sm-blue.css');
-        $xoTheme->addStylesheet(XOOPS_URL . '/modules/tadtools/smartmenus/css/sm-responsive.css');
+        $xoTheme->addStylesheet('modules/tadtools/smartmenus/css/sm-responsive.css');
 
         $tpl->assign('lang_cp', _CPHOME);
         //start system overview
@@ -137,7 +130,7 @@ class TadGui extends XoopsSystemGui
         $tpl->assign('xoops_sitename', $xoopsConfig['sitename']);
         $tpl->assign('server_ip', $_SERVER['SERVER_ADDR']);
         $tpl->assign('remote_ip', $_SERVER['REMOTE_ADDR']);
-        $forwarded_ip=isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:'';
+        $forwarded_ip = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : '';
         $tpl->assign('forwarded_ip', $forwarded_ip);
 
         // ADD MENU *****************************************

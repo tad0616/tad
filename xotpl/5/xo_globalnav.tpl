@@ -17,7 +17,7 @@
     <ul id="main-menu" class="sm sm-blue">
         <{foreach item=item from=$navitems}>
             <li>
-                <{if $item.menu}>
+                <{if $item.menu|default:false}>
                     <a href="<{$item.link}>" title="<{$item.text}>"><{$item.text}></a>
                     <ul>
                         <{foreach item=sub from=$item.menu}>

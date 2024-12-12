@@ -4,21 +4,21 @@
 <!-- title and metas -->
 <title>
   <{if $xoops_pagetitle !='' }>
-        <{$xoops_pagetitle}> :
+        <{$xoops_pagetitle|default:''}> :
   <{/if}>
-  <{$xoops_sitename}>
+  <{$xoops_sitename|default:''}>
 </title>
-<meta http-equiv="content-language" content="<{$xoops_langcode}>">
-<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>">
-<meta name="robots" content="<{$xoops_meta_robots}>">
-<meta name="keywords" content="<{$xoops_meta_keywords}>">
-<meta name="description" content="<{$xoops_meta_description}>">
-<meta name="rating" content="<{$xoops_meta_rating}>">
-<meta name="author" content="<{$xoops_meta_author}>">
-<meta name="copyright" content="<{$xoops_meta_copyright}>">
+<meta http-equiv="content-language" content="<{$xoops_langcode|default:''}>">
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset|default:''}>">
+<meta name="robots" content="<{$xoops_meta_robots|default:''}>">
+<meta name="keywords" content="<{$xoops_meta_keywords|default:''}>">
+<meta name="description" content="<{$xoops_meta_description|default:''}>">
+<meta name="rating" content="<{$xoops_meta_rating|default:''}>">
+<meta name="author" content="<{$xoops_meta_author|default:''}>">
+<meta name="copyright" content="<{$xoops_meta_copyright|default:''}>">
 <meta name="generator" content="XOOPS">
-<{if $url}>
-    <meta http-equiv="Refresh" content="<{$time}>; url=<{$url}>">
+<{if $url|default:false}>
+    <meta http-equiv="Refresh" content="<{$time|default:''}>; url=<{$url|default:''}>">
 <{/if}>
 
 <!-- Rss -->
@@ -35,6 +35,6 @@
 <link href="<{$xoops_url}>/modules/tadtools/css/xoops_adm3.css" rel="stylesheet">
 
 <!-- customized header contents -->
-<{$xoops_module_header}>
+<{$xoops_module_header|default:''}>
 
-<link href="<{$theme_css}>/tad.css" rel="stylesheet">
+<link href="<{$theme_css|default:''}>/tad.css" rel="stylesheet">

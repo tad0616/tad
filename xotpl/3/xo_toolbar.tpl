@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-2 visible-md visible-lg">
                 <div class="tad_toolbar_head">
-                    <{$modname}>
+                    <{$modname|default:''}>
                 </div>
             </div>
             <div class="col-sm-10 text-right">
@@ -14,8 +14,8 @@
                 <{/foreach}>
 
                 <{if $moddir!='system' && $mod_options}>
-                    <a class="tooltip" href="<{$xoops_url}>/modules/system/admin.php?fct=preferences&amp;op=showmod&amp;mod=<{$modid}>" title="<{$smarty.const._OXYGEN_SITEPREF}>">
-                        <img src="<{$theme_icons}>/prefs.png" alt="<{$smarty.const._OXYGEN_SITEPREF}>" class="tad_toolbar_icon">
+                    <a class="tooltip" href="<{$xoops_url}>/modules/system/admin.php?fct=preferences&amp;op=showmod&amp;mod=<{$modid|default:''}>" title="<{$smarty.const._OXYGEN_SITEPREF}>">
+                        <img src="<{$theme_icons|default:''}>/prefs.png" alt="<{$smarty.const._OXYGEN_SITEPREF}>" class="tad_toolbar_icon">
                     </a>
                 <{/if}>
                 <a class="tooltip" href="<{$xoops_url}>/modules/system/help.php" title="<{$smarty.const._AM_SYSTEM_HELP}>">
